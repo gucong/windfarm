@@ -1,0 +1,14 @@
+logRun()
+{
+    LOG=$1
+    APP=$2
+    APP_NAME=$(basename $2)
+    shift 2
+
+    echo "    Running $APP_NAME on $PWD"
+    if [ -f "$LOG" ]; then
+        echo "    WARNING : $PWD/$LOG already exists"
+    fi
+    $APP "$@" > "$LOG" 2>&1 \
+        || (echo "    ERROR , see $PWD/$LOG for detail"; exit 1)
+}

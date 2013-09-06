@@ -1,0 +1,21 @@
+Making dependency list for source file parseDyM.C
+make[1]: Entering directory `/home/gucong/openfoam/windfarm/bin/parseDyMsrc'
+SOURCE=parseDyM.C ;  g++ -m32 -Dlinux -DWM_DP -Wall -Wextra -Wno-unused-parameter -Wold-style-cast -O3  -DNoRepository -ftemplate-depth-100 -I/opt/OpenFOAM/OpenFOAM-2.2.0/src/finiteVolume/lnInclude -I/opt/OpenFOAM/OpenFOAM-2.2.0/src/dynamicMesh/lnInclude -I/opt/OpenFOAM/OpenFOAM-2.2.0/src/meshTools/lnInclude -IlnInclude -I. -I/opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude -I/opt/OpenFOAM/OpenFOAM-2.2.0/src/OSspecific/POSIX/lnInclude   -fPIC -c $SOURCE -o Make/linuxGccDPOpt/parseDyM.o
+In file included from /opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude/Field.H:360:0,
+                 from /opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude/scalarField.H:38,
+                 from /opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude/dimensionSet.H:46,
+                 from /opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude/dimensionedType.H:40,
+                 from /opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude/dimensionedScalar.H:38,
+                 from /opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude/dimensionedTypes.H:31,
+                 from /opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude/GeometricField.H:43,
+                 from /opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude/GeometricScalarField.H:38,
+                 from /opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude/GeometricFields.H:34,
+                 from /opt/OpenFOAM/OpenFOAM-2.2.0/src/finiteVolume/lnInclude/volFields.H:37,
+                 from parseDyM.C:3:
+/opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude/Field.C: In member function ‘void Foam::Field<Type>::operator=(const Foam::VectorSpace<Form, Cmpt, nCmpt>&)’:
+/opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude/Field.C:680:42: warning: typedef ‘VSType’ locally defined but not used [-Wunused-local-typedefs]
+     typedef VectorSpace<Form,Cmpt,nCmpt> VSType;
+                                          ^
+g++ -m32 -Dlinux -DWM_DP -Wall -Wextra -Wno-unused-parameter -Wold-style-cast -O3  -DNoRepository -ftemplate-depth-100 -I/opt/OpenFOAM/OpenFOAM-2.2.0/src/finiteVolume/lnInclude -I/opt/OpenFOAM/OpenFOAM-2.2.0/src/dynamicMesh/lnInclude -I/opt/OpenFOAM/OpenFOAM-2.2.0/src/meshTools/lnInclude -IlnInclude -I. -I/opt/OpenFOAM/OpenFOAM-2.2.0/src/OpenFOAM/lnInclude -I/opt/OpenFOAM/OpenFOAM-2.2.0/src/OSspecific/POSIX/lnInclude   -fPIC -Xlinker --add-needed -Xlinker --no-as-needed Make/linuxGccDPOpt/parseDyM.o -L/opt/OpenFOAM/OpenFOAM-2.2.0/platforms/linuxGccDPOpt/lib \
+     -lfiniteVolume -ldynamicMesh -lmeshTools -lOpenFOAM -ldl   -lm -o ../parseDyM
+make[1]: Leaving directory `/home/gucong/openfoam/windfarm/bin/parseDyMsrc'

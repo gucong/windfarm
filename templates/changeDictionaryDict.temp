@@ -1,0 +1,140 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      changeDictionaryDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+dictionaryReplacement
+{
+    epsilon
+    {
+        internalField   uniform 0.0495;
+
+        boundaryField
+        {
+            __NAME__AMIRot
+            {
+                type            cyclicAMI;
+                value           $internalField;
+            }
+            __NAME__AMISta
+            {
+                type            cyclicAMI;
+                value           $internalField;
+            }
+            __NAME__Turbine
+            {
+                type            epsilonWallFunction;
+                value           $internalField;
+            }
+        }
+    }
+    
+    k
+    {
+        internalField   uniform 0.06;
+
+        boundaryField
+        {
+            __NAME__AMIRot
+            {
+                type            cyclicAMI;
+                value           $internalField;
+            }
+            __NAME__AMISta
+            {
+                type            cyclicAMI;
+                value           $internalField;
+            }
+            __NAME__Turbine
+            {
+                type            kqRWallFunction;
+                value           $internalField;
+            }
+        }
+    }
+
+    nut
+    {
+        internalField   uniform 0;
+
+        boundaryField
+        {
+            __NAME__AMIRot
+            {
+                type            cyclicAMI;
+                value           $internalField;
+            }
+            __NAME__AMISta
+            {
+                type            cyclicAMI;
+                value           $internalField;
+            }
+            __NAME__Turbine
+            {
+                type            nutkWallFunction;
+                value           $internalField;
+            }
+        }
+    }
+
+    p
+    {
+        internalField   uniform 0;
+
+        boundaryField
+        {
+            __NAME__AMIRot
+            {
+                type            cyclicAMI;
+                value           $internalField;
+            }
+            __NAME__AMISta
+            {
+                type            cyclicAMI;
+                value           $internalField;
+            }
+            __NAME__Turbine
+            {
+                type            zeroGradient;
+            }
+        }
+    }
+
+    U
+    {
+        #include "include/windVelocity"
+
+        internalField  uniform  $windVelocity;
+
+        boundaryField
+        {
+            __NAME__AMIRot
+            {
+                type            cyclicAMI;
+                value           $internalField;
+            }
+            __NAME__AMISta
+            {
+                type            cyclicAMI;
+                value           $internalField;
+            }
+            __NAME__Turbine
+            {
+                type            movingWallVelocity;
+                value           uniform (0 0 0);
+            }
+        }
+    }
+}
+
+// ************************************************************************* //

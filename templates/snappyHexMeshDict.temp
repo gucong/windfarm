@@ -1,0 +1,26 @@
+geometry
+{
+    __NAME__Interface.obj
+    {
+        type        triSurfaceMesh;
+        name        __NAME__Sta;
+        regions
+        {
+            ascii
+            {
+                 name       __NAME__Sta;
+            }
+        }
+    }
+}
+
+castellatedMeshControls
+{
+    refinementSurfaces
+    {
+        __NAME__Sta
+        {
+            level       (4 4);
+        }
+    }
+}
